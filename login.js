@@ -62,12 +62,10 @@ function checkPasswordStrength(password) {
 
 document.addEventListener('DOMContentLoaded', function() {
     // Check if user is already logged in
-    if (sessionStorage.getItem('loggedIn') === 'true') {
-        window.location.href = 'web.html';
+        if (sessionStorage.getItem('loggedIn') === 'true') {
+        window.location.href = 'index.html';
         return;
-    }
-
-    // Toggle between login and create account forms
+    }    // Toggle between login and create account forms
     document.getElementById('show-create-account').addEventListener('click', function() {
         document.getElementById('login-form').style.display = 'none';
         document.getElementById('create-account-section').style.display = 'none';
@@ -175,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Redirect to main page
                 setTimeout(() => {
-                    window.location.href = 'web.html';
+                    window.location.href = 'index.html';
                 }, 1500);
             } else {
                 showLoginMessage('Invalid username or password', 'error');

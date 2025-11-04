@@ -152,7 +152,7 @@ function updateCartDisplay() {
                 </div>
                 <h3>Your Balloon Cart is Empty</h3>
                 <p>Add some colorful balloons to make your celebration special</p>
-                <a href="web.html" class="shop-now-btn">
+                <a href="index.html" class="shop-now-btn">
                     <i class="fas fa-sparkles"></i>
                     Start Shopping
                 </a>

@@ -140,7 +140,7 @@ function initDropdown() {
             if (confirm('Are you sure you want to logout?')) {
                 sessionStorage.clear();
                 localStorage.removeItem('cart');
-                window.location.href = 'web.html';
+                window.location.href = 'index.html';
             }
             
             freshMenu.classList.remove('show');

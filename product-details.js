@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     if (!product) {
-        productDetails.innerHTML = '<p>Product not found. <a href="web.html">Return to shop</a></p>';
+        productDetails.innerHTML = '<p>Product not found. <a href="index.html">Return to shop</a></p>';
         return;
     }
     
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <i class="fas fa-envelope"></i>
                             Contact Support
                         </a>
-                        <a href="web.html" class="continue-shopping-btn">
+                        <a href="index.html" class="continue-shopping-btn">
                             <i class="fas fa-shopping-bag"></i>
                             Continue Shopping
                         </a>
@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         productDetails.innerHTML = `
-            <a href="web.html" class="back-to-shop" style="margin-bottom: 20px; display: inline-flex;">
+            <a href="index.html" class="back-to-shop" style="margin-bottom: 20px; display: inline-flex;">
                 <i class="fas fa-arrow-left"></i>
                 <span>Back to Shop</span>
             </a>

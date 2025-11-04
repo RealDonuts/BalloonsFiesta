@@ -263,7 +263,7 @@ function updateProductCount() {
 // View product in shop
 function viewInShop(productId) {
     sessionStorage.setItem('highlightProduct', productId);
-    window.location.href = 'web.html';
+    window.location.href = 'index.html';
 }
 
 // Quick add to cart
@@ -545,7 +545,7 @@ function initDropdown() {
             if (confirm('Are you sure you want to logout?')) {
                 sessionStorage.clear();
                 localStorage.removeItem('cart');
-                window.location.href = 'web.html';
+                window.location.href = 'index.html';
             }
             dropdownMenu.classList.remove('show');
         });
