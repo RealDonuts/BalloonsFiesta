@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Balloons Fiesta</title>
+    <link rel="stylesheet" href="web.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><span class="logo-balloon">🎈</span> Balloons Fiesta Admin</h1>
+        <div class="header-actions">
+            <a href="web.html" class="back-to-shop-btn">
+                <i class="fas fa-arrow-left"></i> Back to Shop
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="admin-container">
+            <div id="access-denied-message" class="access-denied-card" style="display: none;">
+                <div class="access-denied-icon">
+                    <i class="fas fa-user-lock"></i>
+                </div>
+                <h2>Access Denied</h2>
+                <p>You do not have administrative privileges to view this page. Please log in with an admin account.</p>
+                <div class="access-actions">
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </a>
+                    <a href="web.html" class="continue-shopping-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        Continue Shopping
+                    </a>
+                </div>
+            </div>
+
+            <div id="admin-content" style="display: none;">
+                <div class="admin-header">
+                    <h1>Customer Orders</h1>
+                    <p>View and manage all customer orders.</p>
+                </div>
+
+                <div class="order-filters">
+                    <label for="order-status-filter">Filter by Status:</label>
+                    <select id="order-status-filter">
+                        <option value="all">All</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                    <button id="export-orders-btn" class="export-btn">
+                        <i class="fas fa-file-export"></i> Export Orders
+                    </button>
+                </div>
+
+                <div class="orders-list" id="orders-list">
+                    <!-- Orders will be loaded here -->
+                    <p>Loading orders...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>

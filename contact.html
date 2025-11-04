@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us - Balloons Fiesta</title>
+    <link rel="stylesheet" href="web.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><span class="logo-balloon">🎈</span> Balloons Fiesta</h1>
+        <div class="header-actions">
+            
+            <!-- Store clock will be inserted here by JavaScript -->
+            
+            <a href="cart.html" class="view-cart">
+                <span class="cart-label">Cart</span>
+                <span class="cart-count">0</span>
+                <svg class="cart-icon" viewBox="0 0 24 24">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+            </a>
+            
+            <div id="login-section">
+                <a href="login.html" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span class="login-label">Login</span>
+                </a>
+            </div>
+
+            <div class="user-dropdown" id="user-dropdown" style="display: none;">
+                <button class="user-dropdown-toggle" id="user-dropdown-toggle">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+                <div class="user-dropdown-menu" id="user-dropdown-menu">
+                    <div class="user-dropdown-header">
+                        <i class="fas fa-user"></i>
+                        <span id="dropdown-username">User</span>
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <a href="account.html" class="user-dropdown-item">
+                        <i class="fas fa-user-cog"></i>
+                        <span>Account Settings</span>
+                    </a>
+                    <a href="catalog.html" class="user-dropdown-item">
+                        <i class="fas fa-book"></i>
+                        <span>Product Catalog</span>
+                    </a>
+                    <a href="contact.html" class="user-dropdown-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact Support</span>
+                    </a>
+                    <div class="user-dropdown-divider"></div>
+                    <button class="user-dropdown-item" id="dropdown-logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="contact-container">
+            <div class="back-to-shop">
+                <a href="web.html" style="color: white; text-decoration: none;">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Shop
+                </a>
+            </div>
+            
+            <!-- Original Contact Form Section -->
+            <div class="contact-card">
+                <h2 style="font-size: clamp(1.8rem, 5vw, 2.5rem); color: #2d3748; margin-bottom: 30px; text-align: center;">
+                    Contact Balloons Fiesta
+                </h2>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Our Location</h3>
+                            <p>Mall Rd<br>Salem, NH 03079<br>United States</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone Number</h3>
+                            <p>+1 (603) 458-6155<br>Mon-Sat: 10:30AM-6PM EST</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Address</h3>
+                            <p>Balloonsfiesta824@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Business Hours</h3>
+                            <p>Monday - Thursday: 10AM-8PM<br>Friday - Saturday: 10AM-9PM<br>Sunday: 11AM-6PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 style="font-size: 1.5rem; color: #2d3748; margin-bottom: 20px;">Send us a Message</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="product-question">Product Question</option>
+                            <option value="balloon-setup (arch)">Balloon Setup Help</option>
+                            <option value="event-planning">Event Planning</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us how we can help you..." rows="6"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" onclick="submitContactForm()">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="contact.js"></script>
+</body>
+</html>

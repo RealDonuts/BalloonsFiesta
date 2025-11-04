@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Balloons Fiesta</title>
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Add Stripe.js -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "UBKfGQZojHjfeM1BO",
+            });
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <a href="web.html" style="text-decoration: none;">
+            <h1>Balloons Fiesta</h1>
+        </a>
+        <div class="header-actions">
+            <a href="cart.html" class="back-to-shop">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Cart</span>
+            </a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="form_area">
+            <h1 class="title">Checkout</h1>
+            
+            <!-- Order Summary Section -->
+            <div class="order-summary">
+                <h3 style="margin-bottom: 15px; color: #333;">Order Summary</h3>
+                <div class="summary-item">
+                    <span>Subtotal:</span>
+                    <span id="summary-subtotal">$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Shipping:</span>
+                    <span id="summary-shipping">$4.99</span>
+                </div>
+                <div id="free-shipping-message" class="free-shipping-message" style="display: none;">
+                    <i class="fas fa-shipping-fast"></i> Free Shipping Applied!
+                </div>
+                <div id="shipping-progress" class="shipping-progress" style="display: none;">
+                    <!-- Shipping progress message will be inserted here -->
+                </div>
+                <div class="summary-total">
+                    <span>Total:</span>
+                    <span id="summary-total">$0.00</span>
+                </div>
+            </div>
+
+            <form id="checkout-form">
+                <!-- Personal Information -->
+                <div class="form_group">
+                    <label class="sub_title" for="name">Name</label>
+                    <input placeholder="Enter your full name" id="name" class="form_style" type="text" required>
+                    <div class="error-message" id="name-error">Please enter your full name</div>
+                </div>
+                <div class="form_group">
+                    <label class="sub_title" for="email">Email</label>
+                    <input placeholder="Enter your email" id="email" class="form_style" type="email" required>
+                    <div class="error-message" id="email-error">Please enter a valid email address</div>
+                </div>
+                <div class="form_group">
+                    <label class="sub_title" for="address">Address</label>
+                    <input placeholder="Enter your address" id="address" class="form_style" type="text" required>
+                    <div class="error-message" id="address-error">Please enter your address</div>
+                </div>
+                <div class="form_group">
+                    <label class="sub_title" for="phone">Phone Number</label>
+                    <input placeholder="Your Phone Number" id="phone" class="form_style" type="tel" required>
+                    <div class="error-message" id="phone-error">Please enter your phone number</div>
+                </div>
+                
+
+
+                <!-- Pickup Section (for retail) -->
+                <div id="pickup-section">
+                    <div class="form_group">
+                        <label class="sub_title" for="pickup-date">Pickup Date</label>
+                        <input type="date" id="pickup-date" class="form_style">
+                        <div class="error-message" id="pickup-date-error">Please select a pickup date</div>
+                    </div>
+                    <div class="form_group">
+                        <label class="sub_title" for="pickup-time">Pickup Time</label>
+                        <input type="time" id="pickup-time" class="form_style">
+                        <div class="error-message" id="pickup-time-error">Please select a pickup time</div>
+                    </div>
+                </div>
+
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Processing your order...</p>
+                </div>
+                <button type="submit" class="btn" id="submit-btn">
+                    Place Order
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="checkout.js"></script>
+</body>
+</html>
+[file content end]

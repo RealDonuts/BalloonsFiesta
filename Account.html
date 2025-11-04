@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Account - Balloons Fiesta</title>
+    <link rel="stylesheet" href="web.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Balloons Fiesta</h1>
+        <div class="header-actions">
+            <a href="web.html" class="back-to-shop">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Shop</span>
+            </a>
+            <a href="cart.html" class="view-cart">
+                <span class="cart-text">View Cart</span>
+                <span class="cart-count">0</span>
+                <svg class="cart-icon" viewBox="0 0 24 24">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+            </a>
+        </div>
+    </header>
+    <main>
+        <section class="account-container">
+            <h2><i class="fas fa-user-cog"></i> Account Settings</h2>
+            
+            <!-- Account Information Card -->
+            <div class="account-card">
+                <h3><i class="fas fa-user"></i> Account Information</h3>
+                <div id="account-info"></div>
+            </div>
+            
+            <!-- Password Change Card -->
+            <div class="account-card">
+                <h3><i class="fas fa-lock"></i> Change Password</h3>
+                <form id="change-password-form">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="current-password" name="current-password" required 
+                                   placeholder="Enter your current password" style="padding-right: 40px;">
+                            <button type="button" class="toggle-password" data-target="current-password" 
+                                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); 
+                                           background: none; border: none; cursor: pointer; color: #666;">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="new-password" name="new-password" required 
+                                   placeholder="Enter your new password" minlength="6" style="padding-right: 40px;">
+                            <button type="button" class="toggle-password" data-target="new-password" 
+                                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); 
+                                           background: none; border: none; cursor: pointer; color: #666;">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div id="password-strength" class="password-strength"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm New Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="confirm-password" name="confirm-password" required 
+                                placeholder="Confirm your new password" style="padding-right: 40px;">
+                            <button type="button" class="toggle-password" data-target="confirm-password" 
+                                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); 
+                                        background: none; border: none; cursor: pointer; color: #666;">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-key"></i> Change Password
+                    </button>
+                </form>
+            </div>
+
+            <!-- Previous Orders Card -->
+            <div class="account-card">
+                <h3><i class="fas fa-box"></i> Previous Orders</h3>
+                <div id="orders-list"></div>
+            </div>
+        </section>
+    </main>
+    <script src="account.js"></script>
+</body>
+</html>

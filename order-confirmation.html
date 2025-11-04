@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Balloons Fiesta</title>
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Balloons Fiesta</h1>
+        <div class="header-actions">
+            <a href="web.html" class="back-to-shop">
+                <i class="fas fa-home"></i>
+                <span>Back to Shop</span>
+            </a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="form_area">
+            <div class="confirmation-success">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h1 class="title">Order Confirmed!</h1>
+                <p class="confirmation-message">Thank you for your purchase. Your order has been successfully processed.</p>
+                
+                <div class="order-details">
+                    <h3>Order Details</h3>
+                    <div class="detail-item">
+                        <strong>Order ID:</strong>
+                        <span id="order-id">Loading...</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Total Amount:</strong>
+                        <span id="order-total">Loading...</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <strong>Estimated Delivery:</strong>
+                        <span id="delivery-info">Loading...</span>
+                    </div>
+                </div>
+                
+                <div class="confirmation-actions">
+                    <a href="web.html" class="btn continue-shopping">
+                        <i class="fas fa-shopping-bag"></i>
+                        Continue Shopping
+                    </a>
+                    <button class="btn print-receipt" onclick="downloadReceipt()">
+                        <i class="fas fa-download"></i>
+                        Download Receipt
+                    </button>
+                </div>
+                
+                <div class="support-info">
+                    <p><strong>Need help with your order?</strong></p>
+                    <p>Email: balloonfiesta824@gmail.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadReceipt() {
+            const orderDetails = document.querySelector('.order-details').cloneNode(true);
+            const orderId = document.getElementById('order-id').textContent;
+            const options = {
+                margin: 1,
+                filename: `order-receipt-${orderId}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().from(orderDetails).set(options).save();
+        }
+
+        // Get order details from URL parameters or localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderId = urlParams.get('order');
+            
+            if (orderId) {
+                // Get order details from localStorage
+                const orders = JSON.parse(localStorage.getItem('orders')) || [];
+                const order = orders.find(o => o.orderId === orderId);
+                
+                if (order) {
+                    document.getElementById('order-id').textContent = order.orderId;
+                    document.getElementById('order-total').textContent = `$${order.total.toFixed(2)}`;
+
+                    const deliveryInfo = order.accountType === 'retail' ? 
+                        `Ready for pickup on ${order.pickupDate} at ${order.pickupTime}` :
+                        'Shipped within 3-5 business days';
+                    
+                    document.getElementById('delivery-info').textContent = deliveryInfo;
+
+                    const orderDetailsDiv = document.querySelector('.order-details');
+                    let itemsHtml = '<h4>Items:</h4>';
+                    order.cart.forEach(item => {
+                        itemsHtml += `<div class="detail-item"><span>${item.name} x ${item.quantity}</span><span>$${(item.price * item.quantity).toFixed(2)}</span></div>`;
+                    });
+                    orderDetailsDiv.innerHTML += itemsHtml;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
